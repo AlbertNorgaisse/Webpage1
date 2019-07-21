@@ -1,0 +1,671 @@
+/*
+Orange color #e67e22
+*/
+
+/*-------------------------------------------------------------*/
+/*allways do when you start making a website to help create-basic setup */ 
+/*-------------------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    background-color: #ffffff;
+    color: #555555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;/*20 is default size */
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /*hids excess and we give it to the body as well */
+}
+
+.clearfix { zoom: 1} /*these classes will clear a float after an element */
+.clearfix::after {/*new version of this code than the video IMPORTANT TO KNOW IF
+    YOU FLOAT MUST FILL THAT SPACE*/
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/*-------------------------------------------------------------*/
+/*REUSABLE COMPONENTS */ 
+/*-------------------------------------------------------------*/
+
+.row {
+    max-width: 1140px;
+/*old trick *margin: 0 auto 0 auto; */
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 0;
+}
+
+
+h1, h2, h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-top: 0; 
+    margin-bottom: 20px;
+    color:white;
+    font-size:240%;
+    word-spacing: 4px;
+    letter-spacing: 1px; 
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px; 
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 30px; 
+}
+
+h2:after /*shows after the element */ {
+    display: block; /*creates a block basically */
+    height: 2px;
+    background-color: #e67e22; 
+    content:" "; /*has to be there don't show no words so we use white space */
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px; /*while padding requires left right top bottom margin you can specify
+    with dash example margin-top */
+}
+
+/*---- Paragraphs ----*/
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%; /*makes 100 percent and centerd */
+}
+
+.box {
+    padding: 1%; /*remeber margin makes space bigger while padding makes inside content bigger */
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 145%; /*the percentage is affected inside its box so it adjusts from its location */
+}
+
+/*---- ICONS ----*/
+.icon-big {
+    font-size: 350%;
+    display: block;
+    color: #e67e22;
+    margin-bottom: 10px; /*remeber always good look to ad some spacing below */
+    
+    
+}
+
+.icon-small {
+    display: inline-block; /*-- Creates block around icon --*/
+    width: 30px;
+    text-align: center;
+    color: #e67e22;
+    font-size: 120%; /*-- remeber icon is a font so can change just by using font-size --*/
+    margin-right: 10px;
+    
+    /*secrets to align tex and icons */
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -5px; /*negative margin takes space away */
+}
+
+/*---- LINKS ----*/
+a:link,
+a:visited {
+    color: #e67e22;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #e67e22;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+a:hover,
+a:active {
+    color: #555;
+     border-bottom: 1px solid transparent; /*transparent is a much cleaner look than just 0px */
+}
+
+
+
+/*---- BUTTONS ----*/
+.btn:link,
+.btn:visited,
+input[type=submit]{
+    /*how to add the submit button to be the same as our other buttons as well */
+    display: inline-block; /*changes it from regular inline to inline block when using display */
+    padding: 10px 30px;
+    font-weight:300;
+    text-decoration: none; /*gets rid of underline */
+    border-radius: 200px; /*gives box that curve dhape for button */
+    transition: background-color 0.2s, border 0.2s, color 0.2s; /*when a color
+    changes it will change in 0.2 seconds */
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit]{
+    /*link,visted is for how the link behaves when visted or not so in this case we put the same to
+    make the buttons look the same no matter the outcome */
+    background-color: #e67e22;
+    border: 1px solid blue;
+    color: white; /*color for text inside button */
+    margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited{
+    border: 1px solid #e67e22; /*creates bordr around text */
+    color:#e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type_submit]:active /*how to get the hover effect must be included with the input brackets with type inside and the color and action after */ {
+    background-color: #cf6d17;
+}
+
+btn-full:hover,
+.btn-full:active{
+    border: 1px solid #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active{
+    border: 1px solid #cf6d17; /*creates bordr around text */
+    color:white;
+}
+
+/*-------------------------------------------------------------*/
+/*HEADER*/ 
+/*-------------------------------------------------------------*/
+header{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(img/hero.jpg); /*put in the css img file because used in css */
+    /*linear-gradient is in turn putting two colors over the image when can use to darken image
+    using transparentcy */
+    background-size: cover; /*shows whole picture */
+    background-position: center;
+    height: 100vh; /*vh deals with showing the whole view port */
+    background-attachment: fixed;/*creates that cool stayin image effect */
+}
+
+.hero-text-box{
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);   
+}
+
+.logo{
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px
+}
+
+.logo-black {
+    display: none;
+    height: 50px;
+    width: auto;
+    float: left;
+    margin: 5px 0;
+} /*hides the black logo from appearing */
+
+
+/*Mobile navi */
+.mobile-nav-icon {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer; 
+    display: none; /*will hide for the time being */
+}
+
+.mobile-nav-icon i {
+    font-size: 200%;
+    color: #fff;
+}
+
+/*Main navi */
+.main-nav {
+    float: right;
+    list-style: none; /*can get rid of style features */
+    margin-top: 55px;
+}
+
+.main-nav li {
+    display:inline-block; /*make our li go side by side good to know */
+    margin-left: 40px;
+}
+
+/*shows how you can target each level indivually */
+.main-nav li a:link,
+.main-nav li a:visited{
+    padding: 8px 0; /*remeber badding is between content and the borders */
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%; /*remeber to change size to percents by deviding main font size */
+    border-bottom: 2px solid transparent ; /*here but you cant see works without
+    it but you can see why later but good to know */
+    transition: border-bottom 0.2s;
+}
+
+/*shows how you can target each level indivually */
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom:2px solid #e67e22 
+}
+
+
+/* Sticky navi shows what is being styled and sticky is for the whole section nav */
+.sticky {
+    position: fixed;/*navigation stays sstiked at the same location*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);/*transparentcy */
+    box-shadow: 0 2px 2px #efefef;
+    z-index: 9999; /* z-index defines the vertical stacking of elements so it will always be on top of all the elements */
+}
+
+.sticky .main-nav li a:link, /*remeber when using multiple classes don't forget .operator  and no commomn thats how it knows class is inside element*/
+.sticky .main-nav li a:visited{
+    padding: 16px 0; /*remeber badding is between content and the borders */
+    color: #555;   
+}
+
+
+.sticky .main-nav {margin-top: 18px;}
+
+.sticky .logo {display: none;}
+.sticky .logo-black {display: block;}
+
+
+
+/*-------------------------------------------------------------*/
+/*FEATURES*/ 
+/*-------------------------------------------------------------*/
+
+.section-features .long-copy {
+    margin-bottom: 30px;
+}
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/*MEALS*/ 
+/*-------------------------------------------------------------*/
+
+.section-meals {
+    padding: 0; /*gets rid of the padding defauled in */
+}
+.meals-showcase {
+    list-style: none;
+    width: 100%;
+}
+
+.meals-showcase li {
+    display: block;
+    float: left; /*stack them all next to each other in the direction wanted */
+    width: 25%; /*reason it is 25 is because you want 4 in each since 100/4 */
+}
+.meal-photo {
+    width: 100%; /*has the exact with of its parent which is from meals-showcase li
+    good to know this to understand parent child dynamic */
+    margin:0;
+    overflow: hidden; /* hides the overflow from the image from the contatiner */
+    background-color: #000; /*combained with opacity makes contentent in this contatiner darker */
+}
+
+.meal-photo img {
+    opacity: 0.7;
+    width: 100%; /*makes it as wide as its container */
+    height: auto;
+    transform: scale(1.15);/*115% bigger good to make these types of images together bigger than affect with a hover action*/
+    transition: transform 0.5s, opacity 0.5s; /* after colon if you add more effects to the attribute remember , example: effect1,effect2 */
+}
+
+.meal-photo img:hover{
+    opacity: 1;
+    transform: scale(1.03); /*so initally we have the image bigger but
+    when hoevered with the mouse we set it back to default size of the image by scale 1.03 */
+    
+}
+
+/*-------------------------------------------------------------*/
+/*HOW IT WORKS/ 
+/*-------------------------------------------------------------*/
+
+.section-steps{
+    background-color: #dedede
+}
+
+.steps-box {
+    margin-top: 30px;
+}
+.steps-box:first-child {/*pseudo classes to help order sections if two for
+    first and last contents */
+    text-align: right;
+    padding-right: 3%;
+    margin-top: 30px;
+}
+
+.steps-box:last-child {
+    text-align: left;
+    padding-left: 3%;
+    margin-top: 70px;
+}
+
+.app-screen {
+    width: 40%
+}
+
+.works-step {
+    margin-bottom: 50px;
+}
+
+.works-step:last-of-type { /*new type of selector which allows last of the spefic type */
+    margin-bottom: 80px;
+}
+.works-step div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    display: inline-block;
+    border-radius: 50%;/*remember turns border into a circle */
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150%; /*150% seems to be a good range for size */
+    margin-right: 25px;
+}
+
+.btn-app:link,
+.btn-app:visited {
+    border: 0;
+}
+
+.btn-app img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+/*-------------------------------------------------------------*/
+/*CITIES/ 
+/*-------------------------------------------------------------*/
+
+.box img {
+    width: 100%; /*how you get the image size to change and be the size of the box remeber */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.city-feature {
+    margin-bottom: 5px;
+}
+
+/*-------------------------------------------------------------*/
+/*TESTIMONIALS*/ 
+/*-------------------------------------------------------------*/
+
+.section-testimonials {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.81)),url(img/back-customers.jpg);
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+blockquote { /*remember if its html css class dont need dot */
+    padding: 2%;
+    font-style: italic;
+    line-height: 145%;
+    position: relative; /*be there for the parent since its in the child blockquote:before */
+    margin-top: 40px;
+}
+
+blockquote:before {
+    content: "\201C"; /*how to put text in css content also in this case quotations */
+    font-size: 500%;
+    display: block;
+    position: absolute;
+    top:-5px;
+    left:-5px;
+}
+
+cite {
+    font-size: 99%;
+    margin-top: 25px;
+    display: block; /*remember if you want to seperate can put in a block */
+}
+
+cite img {
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+/*-------------------------------------------------------------*/
+/*SIGN UP*/ 
+/*-------------------------------------------------------------*/
+
+.section-plans {
+    background-color: #f4f4f4;
+}
+
+.plan-box {
+    background-color: white;
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5%; /*which is half of the 10% remaning from its parent col */
+    box-shadow: 0 2px 2px #efefef; /* x-axis, y-axis, blur, color, */
+}
+
+.plan-box div {
+    padding: 15px;
+    border-bottom: 1px solid #e3e3e3;
+    
+}
+
+.plan-box div:first-child{
+    background-color: #fcfcfc; /*remeber to be subtle */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child { /*remebr how to this how to select last section in a bunch of divs */
+    text-align: center;
+    border: 0;
+}
+
+.plan-price {
+    font-size: 300%;
+    margin-bottom: 10px;
+    font-weight: 100;
+    color: #e67e22;
+}
+
+.plan-price span {
+    font-size: 30%; /*rememebr the sizing is coming from its parent size which is plan-price */
+    font-weight: 300; /*inhereted the font weight of parent so much change */
+}
+.plan-price-meal {
+    font-size: 80%;
+}
+
+.plan-box ul {
+    list-style: none;
+}
+
+.plan-box ul li {
+    padding: 5px 0;
+}
+
+/*-------------------------------------------------------------*/
+/*FORM*/ 
+/*-------------------------------------------------------------*/
+
+.contact-form {
+    width: 60%;
+    margin:0 auto; /*can center this way or using half from remaining percent of 40 from parent */
+}
+
+input[type=text], /*just want to affect those elements to be more specific use input[ with its type] */
+input[type=email],
+select,
+textarea {
+    width: 100%; /*fills whole column */
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+textarea { /*remember html functions dont need their own . for classes */
+    height: 100px;
+}
+
+input[type=checkbox]{
+    margin: 10px 5px 10px 0;
+}
+
+*:focus {outline: none} /*allows for now blue border when clicking text box */
+
+.form-messages {
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.success {background-color: rgba(23, 234, 31, 0.8)}
+
+.error {background-color: rgba(205, 92, 92, 0.85); }
+/*-------------------------------------------------------------*/
+/*FOOTER*/ 
+/*-------------------------------------------------------------*/
+
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+}
+
+.footer-nav{
+    list-style: none;
+    float: left;
+}
+
+.social-links {
+    list-style: none;
+    float: right;
+}
+
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child {
+    display: inline-block;
+    margin-right: 20px;
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+.social-links li a:link,
+.social li a:visited {
+    font-size: 100%;
+}
+
+.ion-logo-facebook,
+.ion-logo-twitter,
+.ion-logo-googleplus,
+.ion-logo-instagram {
+    transition: color 0.2s;
+}
+
+
+.ion-logo-facebook:hover { /*remebr hover must be touching colon directly */
+    color: #3b5998;
+}
+
+.ion-logo-twitter:hover { /*remebr hover must be touching colon directly */
+    color: #00aced;
+}
+
+.ion-logo-googleplus:hover { /*remebr hover must be touching colon directly */
+    color: #dd4b39;
+}
+
+.ion-logo-instagram:hover { /*remebr hover must be touching colon directly */
+    color: #517fa4;
+}
+
+footer p {
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 8 sections and complete
+
+/*-------------------------------------------------------------*/
+/*ANIMATIONS*/ 
+/*-------------------------------------------------------------*/
+
+.js--wp-1,
+.js--wp-2,
+.js--wp-3{
+    opacity: 0;/*makes it not visible*/
+    -webkit-animation-duration: 1s; /*remember to prefix
+    animation-duration: 1s;/*1 second makes faster */
+}
+
+.js--wp-4 {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.js--wp-1.animated,
+.js--wp-2.animated,
+.js--wp-3.animated{
+    opacity: 1; /*makes it animation take place */
+}
